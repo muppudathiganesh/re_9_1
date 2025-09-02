@@ -1,25 +1,25 @@
 import { useState } from "react";
-import "./App.css"; // Import CSS
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [name, setName] = useState("");
 
   return (
-    <div className="container">
-      <h1>Counter App</h1>
-      <p className="count">Count: {count}</p>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-2xl font-bold mb-4">Name Display</h1>
 
-      <div className="buttons">
-        <button onClick={() => setCount(count + 1)} className="btn increase">
-          +
-        </button>
-        <button onClick={() => setCount(count - 1)} className="btn decrease">
-          -
-        </button>
-        <button onClick={() => setCount(0)} className="btn reset">
-          Reset
-        </button>
-      </div>
+      {/* Input field */}
+      <input
+        type="text"
+        placeholder="Type your name..."
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
+      {/* Display name */}
+      <p className="mt-6 text-xl text-blue-600 font-semibold">
+        {name ? `Hello, ${name}! 👋` : "Start typing your name above..."}
+      </p>
     </div>
   );
 }
