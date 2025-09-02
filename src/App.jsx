@@ -1,20 +1,19 @@
-import { useState } from "react";
+import React from "react";
 
 function App() {
-  // state to hold count value
-  const [count, setCount] = useState(0);
+  const fruits = ["Apple", "Banana", "Mango", "Orange", "Pineapple"];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Click Counter</h1>
-      <p className="text-xl mb-4">You clicked {count} times</p>
-      <button
-        onClick={() => setCount(count + 1)}
-        className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-      >
-        Click Me
-      </button>
-    </div>
+    <>
+      <h2 className="text-xl font-bold mb-2">Fruit List</h2>
+      <ul className="list-disc pl-5">
+        {fruits.map((fruit, index) => (
+          <React.Fragment key={index}>
+            <li>{fruit}</li>
+          </React.Fragment>
+        ))}
+      </ul>
+    </>
   );
 }
 
